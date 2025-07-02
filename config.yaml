@@ -1,0 +1,49 @@
+chunking:
+  chunk_size: 400
+  chunk_overlap: 50
+
+embedding:
+  provider: openai
+  model: text-embedding-ada-002
+  api_key_env: OPENAI_API_KEY
+
+llm:
+  provider: openai
+  model: gpt-4o-mini-2024-07-18
+  api_key_env: OPENAI_API_KEY
+
+chroma:
+  persist_directory: ./chroma_db
+  collection_name: documents
+
+retrieval:
+  top_k: 10
+  metadata_filter_enabled: true
+
+sources:
+  google_drive_enabled: true
+  telegram_enabled: true
+  google_drive_folder_id: your_drive_folder_id_here
+
+logging:
+  level: INFO
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message} {extra}"
+
+scheduling:
+  enabled: true
+  sync_interval: "0 */6 * * *"  # Каждые 6 часов
+
+# Настройки для Google Drive (pydrive2)
+google_drive:
+  client_config_backend: settings
+  client_config_file: client_secrets.json
+  save_credentials: true
+  save_credentials_file: token.json
+  oauth_scope:
+    - https://www.googleapis.com/auth/drive.readonly
+
+# autotune.enabled: если true — система автоматически подбирает оптимальные параметры chunk_size, overlap и top_k после загрузки документов.
+# Используйте true для универсальных и новых баз, чтобы повысить качество поиска без ручной настройки.
+# Используйте false, если хотите жёстко зафиксировать параметры из config.yaml (например, для стабильного продакшена).
+autotune:
+  enabled: true 

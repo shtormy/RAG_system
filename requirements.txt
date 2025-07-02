@@ -1,0 +1,38 @@
+# Основные зависимости LangChain
+langchain==0.3.26
+langchain-openai==0.3.25
+langchain-community==0.3.26
+langchain-core==0.3.66
+
+# Векторная база данных
+chromadb==0.4.22
+
+# OpenAI API
+openai==1.90.0
+
+# Обработка PDF и документов
+PyMuPDF==1.23.26
+pdfplumber==0.10.3
+python-docx==1.1.0
+
+# Google Drive интеграция
+pydrive2==1.18.0
+
+# Telegram бот
+aiogram==2.25.1
+
+# Утилиты
+PyYAML==6.0.1
+python-dotenv==1.0.1
+
+# Логирование
+loguru==0.7.2
+
+# Планировщик задач (совместимый с Windows)
+croniter==6.0.0
+
+# Sparse retrieval
+rank_bm25 
+
+# Redis
+redis==5.0.4
